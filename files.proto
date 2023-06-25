@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package filesPackage;
+
+
+
+service Files {
+    rpc createFile(File) returns (textmsg);
+    rpc progressView(progress) returns (progress);
+    rpc downloadFiles(empty) returns (stream progress);
+}
+
+message empty {}
+
+message File {
+    int32 id = 1;
+    string name = 2;
+}
+message progress {
+    string processPresentege = 1;
+    string fileName = 2;
+}
+
+message textmsg {
+   string message = 1;
+}
+
+
